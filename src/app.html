@@ -5,12 +5,18 @@
            (on-video-event)="onVideoEvent($event)">
     <!--vg-overlay-play (^on-click-layer)="onClickLayer()"></vg-overlay-play-->
 
+    <vg-scrub-bar for="singleVideo" class="above">
+        <vg-scrub-bar-current-time for="singleVideo"></vg-scrub-bar-current-time>
+    </vg-scrub-bar>
+
     <vg-controls>
         <vg-play-pause></vg-play-pause>
 
         <vg-time-display>{{ single.time.current | date:'mm:ss' }}</vg-time-display>
 
-        <vg-scrub-bar for="singleVideo"></vg-scrub-bar>
+        <vg-scrub-bar for="singleVideo">
+            <vg-scrub-bar-current-time for="singleVideo"></vg-scrub-bar-current-time>
+        </vg-scrub-bar>
 
         <vg-time-display>{{ single.time.left | date:'mm:ss' }}</vg-time-display>
         <vg-time-display>{{ single.time.total | date:'mm:ss' }}</vg-time-display>
