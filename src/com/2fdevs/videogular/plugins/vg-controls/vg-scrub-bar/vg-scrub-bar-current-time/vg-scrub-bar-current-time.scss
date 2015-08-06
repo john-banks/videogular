@@ -6,9 +6,15 @@ vg-scrub-bar-current-time {
 
     .background {
         background-color: white;
+    }
+}
+
+vg-controls vg-scrub-bar-current-time {
+    .background {
         border: 1px solid white;
         -webkit-border-radius: 2px;
         -moz-border-radius: 2px;
         border-radius: 2px;
     }
 }
+
