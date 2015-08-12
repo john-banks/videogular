@@ -5,6 +5,7 @@ import {VgAbstractControl} from 'com/2fdevs/videogular/components/vg-abstract-co
 
 @Component({
     selector: 'vg-play-pause',
+    viewBindings: [VgAPI],
     host: {
         '(click)': 'onClick()'
     }
@@ -20,7 +21,7 @@ export class VgPlayPause extends VgAbstractControl {
 
     getState() {
         var state = this.target.state;
-        
+
         if (this.target.state instanceof Array) {
             state = 'pause';
             for (var i = 0, l = this.target.state.length; i < l; i++){

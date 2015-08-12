@@ -5,6 +5,7 @@ import {VgAbstractControl} from 'com/2fdevs/videogular/components/vg-abstract-co
 
 @Component({
     selector: 'vg-scrub-bar',
+    viewBindings: [VgAPI],
     host: {
         '(mousedown)': 'onMouseDownScrubBar($event)'
     }

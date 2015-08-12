@@ -5,7 +5,7 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
 
 @Component({
     selector: 'vg-player',
-    viewInjector: [VgAPI],
+    viewBindings: [VgAPI],
     events: ['onPlayerReady', 'onMediaReady']
 })
 @View({
