@@ -16,9 +16,14 @@ export class VgAPI {
     }
 
     getMediaById(id:string) {
-        return this.medias[id];
-    }
+        var media = this.medias[id];
 
+        if (!id || id === '*') {
+            media = this;
+        }
+
+        return media;
+    }
 
     play() {
         for (var id in this.medias) {
@@ -72,6 +77,10 @@ export class VgAPI {
         return this.$$getAllProperties('isCompleted');
     }
 
+    get time() {
+        return this.$$getAllProperties('time');
+    }
+
     seekTime(value:number = 0, byPercent:boolean = false) {
         for (var id in this.medias) {
             this.$$seek(this.medias[id], value, byPercent);
@@ -105,13 +114,13 @@ export class VgAPI {
 
         if (result.length === 1) result = result[0];
 
-        return result;        
+        return result;
     }
 
     $$setAllProperties(property:string, value){
         for (var id in this.medias) {
             this.medias[id][property] = value;
-        }        
+        }
     }
 
     registerElement(elem:HTMLElement) {

@@ -1,4 +1,4 @@
-import {Component, View, ElementRef} from 'angular2/angular2';
+import {Component, View, LifecycleEvent} from 'angular2/angular2';
 
 import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
 import {VgAbstractControl} from 'com/2fdevs/videogular/components/vg-abstract-control/vg-abstract-control';
@@ -8,15 +8,20 @@ import {VgAbstractControl} from 'com/2fdevs/videogular/components/vg-abstract-co
     viewBindings: [VgAPI],
     host: {
         '(click)': 'onClick()'
-    }
+    },
+    lifecycle: [LifecycleEvent.onInit]
 })
 @View({
     templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-play-pause/vg-play-pause.html'
 })
-export class VgPlayPause extends VgAbstractControl {
+export class VgPlayPause {
 
-    constructor(public ref:ElementRef, public API:VgAPI) {
-        super(ref, API);
+    constructor(public API:VgAPI) {
+
+    }
+
+    onInit() {
+        this.target = this.API.getMediaById(this.idTarget);
     }
 
     getState() {

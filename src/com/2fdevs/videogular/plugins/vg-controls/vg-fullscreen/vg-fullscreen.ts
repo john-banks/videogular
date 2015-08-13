@@ -13,10 +13,10 @@ import {VgAbstractControl} from 'com/2fdevs/videogular/components/vg-abstract-co
 @View({
     templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-fullscreen/vg-fullscreen.html'
 })
-export class VgFullscreen extends VgAbstractControl {
+export class VgFullscreen {
 
     constructor(public ref:ElementRef, public API:VgAPI) {
-        super(ref, API);
+
     }
 
     onClick() {

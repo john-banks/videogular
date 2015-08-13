@@ -1,24 +1,30 @@
-import {Component, View, ElementRef} from 'angular2/angular2';
+import {Component, View, LifecycleEvent} from 'angular2/angular2';
 
 import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
-import {VgAbstractControl} from 'com/2fdevs/videogular/components/vg-abstract-control/vg-abstract-control';
 
 @Component({
     selector: 'vg-mute',
     viewBindings: [VgAPI],
+    properties: [
+        'idTarget: for'
+    ],
     host: {
         '(click)': 'onClick()'
-    }
+    },
+    lifecycle: [LifecycleEvent.onInit]
 })
 @View({
     templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-mute/vg-mute.html'
 })
-export class VgMute extends VgAbstractControl {
+export class VgMute {
     currentVolume:number;
 
-    constructor(public ref:ElementRef, public API:VgAPI) {
-        super(ref, API);
+    constructor(public API:VgAPI) {
 
+    }
+
+    onInit() {
+        this.target = this.API.getMediaById(this.idTarget);
         this.currentVolume = this.target.volume;
     }
 

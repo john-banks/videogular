@@ -1,9 +1,7 @@
 <h2>One media object</h2>
 
 <vg-player (on-player-ready)="onPlayerReady($event)"
-           (on-media-ready)="onMediaReady($event)"
-           (on-video-event)="onVideoEvent($event)">
-    <!--vg-overlay-play (^on-click-layer)="onClickLayer()"></vg-overlay-play-->
+           (on-media-ready)="onMediaReady($event)">
 
     <vg-scrub-bar for="singleVideo">
         <vg-scrub-bar-current-time for="singleVideo"></vg-scrub-bar-current-time>
@@ -37,7 +35,6 @@
 <vg-player (on-player-ready)="onPlayerReady($event)"
            (on-media-ready)="onMediaReady($event)"
            (on-video-event)="onVideoEvent($event)">
-    <!--vg-overlay-play (^on-click-layer)="onClickLayer()"></vg-overlay-play-->
 
     <vg-controls>
         <vg-play-pause for="*"></vg-play-pause>
@@ -64,6 +61,8 @@
     </video>
 
 </vg-player>
+
+
 
 
 

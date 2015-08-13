@@ -13,10 +13,10 @@ import {VgAbstractControl} from 'com/2fdevs/videogular/components/vg-abstract-co
 @View({
     templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar.html'
 })
-export class VgScrubBar extends VgAbstractControl {
+export class VgScrubBar {
 
     constructor(public ref:ElementRef, public API:VgAPI) {
-        super(ref, API);
+
     }
 
     onMouseDownScrubBar($event) {

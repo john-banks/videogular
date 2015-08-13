@@ -1,5 +1,5 @@
 /// <reference path="../typings/tsd.d.ts" />
-import {Component, View, NgFor, bootstrap} from 'angular2/angular2';
+import {ShadowDomStrategy, NativeShadowDomStrategy, Component, View, NgFor, bootstrap} from 'angular2/angular2';
 import {VgPlayer} from 'com/2fdevs/videogular/components/vg-player/vg-player';
 import {VgOverlayPlay} from 'com/2fdevs/videogular/plugins/vg-overlay-play/vg-overlay-play';
 
@@ -44,11 +44,6 @@ class MyAppComponent {
         ];
 
         this.player = document.querySelector("vg-player");
-        console.log(this.player);
-    }
-
-    onClickLayer() {
-        console.log("click layer");
     }
 
     onPlayerReady(API) {
@@ -60,14 +55,6 @@ class MyAppComponent {
         console.log("media ready");
         // pipVideo
         API.seekTime("pipVideo", 50, true);
-    }
-
-    onVideoEvent(event) {
-        console.log(event.target.id + " --> " + event.type);
-    }
-
-    onLoadedMetadata(event) {
-        console.log(event);
     }
 }
 

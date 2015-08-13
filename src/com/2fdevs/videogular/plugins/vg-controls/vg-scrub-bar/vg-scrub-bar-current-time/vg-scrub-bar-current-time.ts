@@ -1,21 +1,25 @@
-import {Component, View, ElementRef} from 'angular2/angular2';
+import {Component, View, LifecycleEvent} from 'angular2/angular2';
 
 import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
-import {VgAbstractControl} from 'com/2fdevs/videogular/components/vg-abstract-control/vg-abstract-control';
 
 @Component({
     selector: 'vg-scrub-bar-current-time',
-    viewInjector: [VgAPI],
+    viewBindings: [VgAPI],
     host: {
         '(mousedown)': 'onMouseDownScrubBar($event)'
-    }
+    },
+    lifecycle: [LifecycleEvent.onInit]
 })
 @View({
     templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar-current-time/vg-scrub-bar-current-time.html'
 })
-export class VgScrubBarCurrentTime extends VgAbstractControl {
-    constructor(public ref:ElementRef, public API:VgAPI) {
-        super(ref, API);
+export class VgScrubBarCurrentTime {
+    constructor(public API:VgAPI) {
+
+    }
+
+    onInit() {
+        this.target = this.API.getMediaById(this.idTarget);
     }
 
     getPercentage() {

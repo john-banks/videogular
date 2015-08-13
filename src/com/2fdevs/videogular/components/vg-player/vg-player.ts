@@ -1,12 +1,12 @@
-import {Component, View, bootstrap, EventEmitter, ElementRef} from 'angular2/angular2';
+import {Component, View, bootstrap, EventEmitter, ElementRef, LifecycleEvent} from 'angular2/angular2';
 
 import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
-
 
 @Component({
     selector: 'vg-player',
     viewBindings: [VgAPI],
-    events: ['onPlayerReady', 'onMediaReady']
+    events: ['onPlayerReady', 'onMediaReady'],
+    lifecycle: [LifecycleEvent.onInit]
 })
 @View({
     templateUrl: 'com/2fdevs/videogular/components/vg-player/vg-player.html'
@@ -32,8 +32,10 @@ export class VgPlayer {
         for (var i=0, l=medias.length; i<l; i++) {
             this.API.registerMedia(medias[i]);
         }
+    }
 
-        setTimeout(() => this.onPlayerReady.next(this.API), 16);
+    onInit() {
+        this.onPlayerReady.next(this.API);
     }
 
     onVgMediaReady(event) {
