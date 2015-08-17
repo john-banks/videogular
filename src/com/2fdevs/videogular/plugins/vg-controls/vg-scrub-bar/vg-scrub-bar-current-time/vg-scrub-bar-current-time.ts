@@ -1,17 +1,17 @@
-import {Component, View, LifecycleEvent} from 'angular2/angular2';
+import {Component, View, ViewEncapsulation, LifecycleEvent} from 'angular2/angular2';
 
 import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
 
 @Component({
     selector: 'vg-scrub-bar-current-time',
-    viewBindings: [VgAPI],
-    host: {
-        '(mousedown)': 'onMouseDownScrubBar($event)'
-    },
+    properties: [
+        'targetId: for'
+    ],
     lifecycle: [LifecycleEvent.onInit]
 })
 @View({
-    templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar-current-time/vg-scrub-bar-current-time.html'
+    templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar-current-time/vg-scrub-bar-current-time.html',
+    encapsulation: ViewEncapsulation.NONE
 })
 export class VgScrubBarCurrentTime {
     constructor(public API:VgAPI) {
@@ -19,7 +19,7 @@ export class VgScrubBarCurrentTime {
     }
 
     onInit() {
-        this.target = this.API.getMediaById(this.idTarget);
+        this.target = this.API.getMediaById(this.targetId);
     }
 
     getPercentage() {

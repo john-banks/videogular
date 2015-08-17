@@ -10,7 +10,6 @@ import {VgScrubBarCurrentTime} from 'com/2fdevs/videogular/plugins/vg-controls/v
 import {VgMute} from 'com/2fdevs/videogular/plugins/vg-controls/vg-mute/vg-mute';
 import {VgFullscreen} from 'com/2fdevs/videogular/plugins/vg-controls/vg-fullscreen/vg-fullscreen';
 
-import {VgEvents} from 'com/2fdevs/videogular/events/VgEvents';
 
 @Component({
     selector: 'my-app'

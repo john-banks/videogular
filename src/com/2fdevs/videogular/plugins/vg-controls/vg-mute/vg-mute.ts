@@ -1,12 +1,11 @@
-import {Component, View, LifecycleEvent} from 'angular2/angular2';
+import {Component, View, LifecycleEvent, ViewEncapsulation} from 'angular2/angular2';
 
 import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
 
 @Component({
     selector: 'vg-mute',
-    viewBindings: [VgAPI],
     properties: [
-        'idTarget: for'
+        'targetId: for'
     ],
     host: {
         '(click)': 'onClick()'
@@ -14,7 +13,8 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
     lifecycle: [LifecycleEvent.onInit]
 })
 @View({
-    templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-mute/vg-mute.html'
+    templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-mute/vg-mute.html',
+    encapsulation: ViewEncapsulation.NONE
 })
 export class VgMute {
     currentVolume:number;
@@ -24,7 +24,7 @@ export class VgMute {
     }
 
     onInit() {
-        this.target = this.API.getMediaById(this.idTarget);
+        this.target = this.API.getMediaById(this.targetId);
         this.currentVolume = this.target.volume;
     }
 
@@ -48,7 +48,7 @@ export class VgMute {
             volume = 0;
 
             for (var i=0, l=this.target.volume.length; i<l; i++) {
-                volume += this.target.volume[i].volume;
+                volume += this.target.volume[i];
             }
 
             result = (volume / this.target.volume.length);

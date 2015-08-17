@@ -1,15 +1,16 @@
-import {Component, View, bootstrap, EventEmitter, ElementRef, LifecycleEvent} from 'angular2/angular2';
+import {Component, View, bootstrap, EventEmitter, ElementRef, LifecycleEvent, ViewEncapsulation} from 'angular2/angular2';
 
 import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
 
 @Component({
     selector: 'vg-player',
-    viewBindings: [VgAPI],
+    bindings: [VgAPI],
     events: ['onPlayerReady', 'onMediaReady'],
     lifecycle: [LifecycleEvent.onInit]
 })
 @View({
-    templateUrl: 'com/2fdevs/videogular/components/vg-player/vg-player.html'
+    templateUrl: 'com/2fdevs/videogular/components/vg-player/vg-player.html',
+    encapsulation: ViewEncapsulation.NONE
 })
 export class VgPlayer {
     elem:HTMLElement;

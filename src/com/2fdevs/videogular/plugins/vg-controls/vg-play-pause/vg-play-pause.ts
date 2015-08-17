@@ -1,18 +1,20 @@
-import {Component, View, LifecycleEvent} from 'angular2/angular2';
+import {Component, View, LifecycleEvent, ViewEncapsulation} from 'angular2/angular2';
 
 import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
-import {VgAbstractControl} from 'com/2fdevs/videogular/components/vg-abstract-control/vg-abstract-control';
 
 @Component({
     selector: 'vg-play-pause',
-    viewBindings: [VgAPI],
+    properties: [
+        'targetId: for'
+    ],
     host: {
         '(click)': 'onClick()'
     },
     lifecycle: [LifecycleEvent.onInit]
 })
 @View({
-    templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-play-pause/vg-play-pause.html'
+    templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-play-pause/vg-play-pause.html',
+    encapsulation: ViewEncapsulation.NONE
 })
 export class VgPlayPause {
 
@@ -21,22 +23,7 @@ export class VgPlayPause {
     }
 
     onInit() {
-        this.target = this.API.getMediaById(this.idTarget);
-    }
-
-    getState() {
-        var state = this.target.state;
-
-        if (this.target.state instanceof Array) {
-            state = 'pause';
-            for (var i = 0, l = this.target.state.length; i < l; i++){
-                if (this.target.state[i].state === 'play'){
-                    state = 'play';
-                    break;
-                }
-            }
-        }
-        return state;
+        this.target = this.API.getMediaById(this.targetId);
     }
 
     onClick() {
@@ -51,5 +38,24 @@ export class VgPlayPause {
                 this.target.play();
                 break;
         }
+    }
+
+    getState() {
+        var state;
+
+        if (this.target.state instanceof Array) {
+            state = 'pause';
+            for (var i = 0, l = this.target.state.length; i < l; i++){
+                if (this.target.state[i] === 'play'){
+                    state = 'play';
+                    break;
+                }
+            }
+        }
+        else {
+            state = this.target.state;
+        }
+
+        return state;
     }
 }

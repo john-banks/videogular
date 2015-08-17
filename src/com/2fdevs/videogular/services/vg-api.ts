@@ -105,11 +105,7 @@ export class VgAPI {
         var result = [];
 
         for (var id in this.medias) {
-            var mediaProperty = {
-                id: id
-            };
-            mediaProperty[property] = this.medias[id][property];
-            result.push(mediaProperty);
+            result.push(this.medias[id][property]);
         }
 
         if (result.length === 1) result = result[0];
