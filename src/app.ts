@@ -5,6 +5,7 @@ import {VgOverlayPlay} from 'com/2fdevs/videogular/plugins/vg-overlay-play/vg-ov
 
 import {VgControls} from 'com/2fdevs/videogular/plugins/vg-controls/vg-controls';
 import {VgPlayPause} from 'com/2fdevs/videogular/plugins/vg-controls/vg-play-pause/vg-play-pause';
+import {VgPlaybackButton} from 'com/2fdevs/videogular/plugins/vg-controls/vg-playback-button/vg-playback-button';
 import {VgScrubBar} from 'com/2fdevs/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar';
 import {VgScrubBarCurrentTime} from 'com/2fdevs/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar-current-time/vg-scrub-bar-current-time';
 import {VgMute} from 'com/2fdevs/videogular/plugins/vg-controls/vg-mute/vg-mute';
@@ -16,7 +17,7 @@ import {VgFullscreen} from 'com/2fdevs/videogular/plugins/vg-controls/vg-fullscr
 })
 @View({
     templateUrl: 'app.html',
-    directives: [VgPlayer, VgOverlayPlay, VgControls, VgPlayPause, VgScrubBar, VgScrubBarCurrentTime, VgMute, VgFullscreen, NgFor]
+    directives: [VgPlayer, VgOverlayPlay, VgControls, VgPlayPause, VgPlaybackButton, VgScrubBar, VgScrubBarCurrentTime, VgMute, VgFullscreen, NgFor]
 })
 class MyAppComponent {
     sources:Array<Object>;

@@ -57,6 +57,14 @@ export class VgAPI {
         return this.$$getAllProperties('volume');
     }
 
+    set playbackRate(rate) {
+        this.$$setAllProperties('playbackRate', rate);
+    }
+
+    get playbackRate() {
+        return this.$$getAllProperties('playbackRate');
+    }
+
     get canPlay() {
         return this.$$getAllProperties('canPlay');
     }
@@ -170,6 +178,7 @@ export class VgAPI {
         media.addEventListener(VgEvents.VG_PLAYING, this.onStartPlaying.bind(this, media.id), false);
         media.addEventListener(VgEvents.VG_PLAY, this.onPlay.bind(this, media.id), false);
         media.addEventListener(VgEvents.VG_PAUSE, this.onPause.bind(this, media.id), false);
+        media.addEventListener(VgEvents.VG_PLAYBACK_CHANGE, this.onPlaybackChange.bind(this, media.id), false);
         media.addEventListener(VgEvents.VG_TIME_UPDATE, this.onTimeUpdate.bind(this, media.id), false);
         media.addEventListener(VgEvents.VG_VOLUME_CHANGE, this.onVolumeChange.bind(this, media.id), false);
         media.addEventListener(VgEvents.VG_ERROR, this.onError.bind(this, media.id), false);
@@ -208,6 +217,11 @@ export class VgAPI {
 
     onPause(id:string) {
         this.medias[id].state = 'pause';
+    }
+
+    onPlaybackChange(id: string, rate: string) {
+        console.log("rate changed: ", rate);
+        this.medias[id].playbackRate = rate;
     }
 
     onTimeUpdate(id:string) {
