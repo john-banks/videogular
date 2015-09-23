@@ -17,3 +17,15 @@
     color: white;
     line-height: 50px;
 }
+
+@mixin opacity($value: 1) {
+    zoom: 1;
+    filter: alpha(opacity=$value * 100);
+    opacity: $value;
+}
+
+@mixin border-radius($value: 0) {
+    -webkit-border-radius: $value;
+    -moz-border-radius: $value;
+    border-radius: $value;
+}

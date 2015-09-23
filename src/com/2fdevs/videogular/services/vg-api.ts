@@ -89,7 +89,7 @@ export class VgAPI {
         return this.$$getAllProperties('time');
     }
 
-    get time() {
+    get buffered() {
         return this.$$getAllProperties('buffered');
     }
 
@@ -141,6 +141,10 @@ export class VgAPI {
             current: 0,
             total: 0,
             left: 0
+        };
+
+        media.buffer = {
+            end: 0
         };
 
         media.canPlay = false;
@@ -225,13 +229,13 @@ export class VgAPI {
     }
 
     onPlaybackChange(id: string, rate: string) {
-        console.log("rate changed: ", rate);
         this.medias[id].playbackRate = rate;
     }
 
     onTimeUpdate(id:string) {
         this.medias[id].time.current = this.medias[id].currentTime * 1000;
         this.medias[id].time.left = (this.medias[id].duration - this.medias[id].currentTime) * 1000;
+        this.medias[id].buffer.end = this.medias[id].buffered.end(this.medias[id].buffered.length - 1) * 1000;
     }
 
     onVolumeChange(id:string) {

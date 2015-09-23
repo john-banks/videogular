@@ -22,11 +22,13 @@ export class VgScrubBarBufferingTime {
         this.target = this.API.getMediaById(this.targetId);
     }
 
-    getBufferStart() {
-        return ((this.target.time.current * 100 / this.target.time.total)) + '%';
-    }
-
     getBufferTime() {
-        return ((this.target.time.current * 100 / this.target.time.total)) + '%';
+        var bufferTime = "0%";
+
+        if (this.target.buffered.length) {
+            bufferTime = ((this.target.buffer.end / this.target.time.total) * 100) + '%';
+        }
+
+        return bufferTime;
     }
 }

@@ -7,11 +7,14 @@ vg-scrub-bar{
     margin: 0;
     cursor: pointer;
     align-items: center;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 250;
 }
 
 vg-controls vg-scrub-bar {
     position: relative;
     bottom: initial;
+    background: initial;
 
     height: 50px;
     flex-grow: 1;
