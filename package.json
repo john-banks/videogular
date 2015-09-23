@@ -24,7 +24,9 @@
   },
   "scripts": {
     "build": "./node_modules/.bin/gulp",
-    "dev": "./node_modules/.bin/gulp dev"
+    "dev": "./node_modules/.bin/gulp dev",
+    "tsd-query": "./node_modules/.bin/tsd query angular2 -v all",
+    "tsd-install": "./node_modules/.bin/tsd install angular2 -v v2.0.0-alpha.35"
   },
   "engines": {
     "node": ">=0.8.0"

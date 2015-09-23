@@ -11,13 +11,8 @@ vg-overlay-play {
   filter: alpha(opacity=60);
   opacity: 0.6;
 
-  &:hover{
-    filter: alpha(opacity=100);
-    opacity: 1;
-    font-size: 100px;
-  }
-
   .overlay-play-container.play {
+
 
     pointer-events: none;
     width: 100%;
@@ -28,8 +23,17 @@ vg-overlay-play {
     justify-content: center;
 
     &:before {
+      transition: all 0.5s;
       content: "\e000";
-      zoom: 1;
+    }
+  }
+
+  &:hover {
+    filter: alpha(opacity=100);
+    opacity: 1;
+
+    .overlay-play-container.play:before{
+      transform: scale(1.2);
     }
   }
 }
