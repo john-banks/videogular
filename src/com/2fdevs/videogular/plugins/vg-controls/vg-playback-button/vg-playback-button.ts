@@ -28,8 +28,13 @@ export class VgPlaybackButton {
     }
 
     onClick() {
-        this.playbackIndex = ++this.playbackIndex % this.playbackValues.length;  
+        this.playbackIndex = ++this.playbackIndex % this.playbackValues.length;
 
-        this.target.playbackRate = (this.playbackValues[this.playbackIndex]);
+        if (this.target instanceof VgAPI) {
+            this.target.playbackRate = (this.playbackValues[this.playbackIndex]);
+        }
+        else {
+            this.target.playbackRate[this.targetId] = (this.playbackValues[this.playbackIndex]);
+        }
     }
 }

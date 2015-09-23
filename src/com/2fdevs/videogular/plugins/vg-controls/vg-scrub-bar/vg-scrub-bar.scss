@@ -1,5 +1,4 @@
 vg-scrub-bar{
-    display: flex;
     position: absolute;
     z-index: 1;
     width: 100%;
@@ -11,7 +10,9 @@ vg-scrub-bar{
 }
 
 vg-controls vg-scrub-bar {
-    position: initial;
+    position: relative;
+    bottom: initial;
+
     height: 50px;
     flex-grow: 1;
     flex-basis: 0;

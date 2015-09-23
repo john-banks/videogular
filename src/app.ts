@@ -8,6 +8,7 @@ import {VgPlayPause} from 'com/2fdevs/videogular/plugins/vg-controls/vg-play-pau
 import {VgPlaybackButton} from 'com/2fdevs/videogular/plugins/vg-controls/vg-playback-button/vg-playback-button';
 import {VgScrubBar} from 'com/2fdevs/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar';
 import {VgScrubBarCurrentTime} from 'com/2fdevs/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar-current-time/vg-scrub-bar-current-time';
+import {VgScrubBarBufferingTime} from 'com/2fdevs/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar-buffering-time/vg-scrub-bar-buffering-time';
 import {VgMute} from 'com/2fdevs/videogular/plugins/vg-controls/vg-mute/vg-mute';
 import {VgFullscreen} from 'com/2fdevs/videogular/plugins/vg-controls/vg-fullscreen/vg-fullscreen';
 
@@ -17,7 +18,19 @@ import {VgFullscreen} from 'com/2fdevs/videogular/plugins/vg-controls/vg-fullscr
 })
 @View({
     templateUrl: 'app.html',
-    directives: [VgPlayer, VgOverlayPlay, VgControls, VgPlayPause, VgPlaybackButton, VgScrubBar, VgScrubBarCurrentTime, VgMute, VgFullscreen, NgFor]
+    directives: [
+        VgPlayer,
+        VgOverlayPlay,
+        VgControls,
+        VgPlayPause,
+        VgPlaybackButton,
+        VgScrubBar,
+        VgScrubBarCurrentTime,
+        VgScrubBarBufferingTime,
+        VgMute,
+        VgFullscreen,
+        NgFor
+    ]
 })
 class MyAppComponent {
     sources:Array<Object>;

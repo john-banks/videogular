@@ -89,6 +89,10 @@ export class VgAPI {
         return this.$$getAllProperties('time');
     }
 
+    get time() {
+        return this.$$getAllProperties('buffered');
+    }
+
     seekTime(value:number = 0, byPercent:boolean = false) {
         for (var id in this.medias) {
             this.$$seek(this.medias[id], value, byPercent);
@@ -110,13 +114,14 @@ export class VgAPI {
     }
 
     $$getAllProperties(property:string){
-        var result = [];
+        var result = {};
 
         for (var id in this.medias) {
-            result.push(this.medias[id][property]);
+            result[id] = this.medias[id][property];
         }
 
-        if (result.length === 1) result = result[0];
+        // If there's only one media element then return the plain value
+        if (Object.keys(result).length === 1) result = result[Object.keys(result)[0]];
 
         return result;
     }

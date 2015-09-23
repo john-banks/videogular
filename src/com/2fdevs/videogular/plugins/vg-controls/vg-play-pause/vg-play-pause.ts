@@ -43,10 +43,11 @@ export class VgPlayPause {
     getState() {
         var state;
 
-        if (this.target.state instanceof Array) {
+        if (this.target.state instanceof Object) {
             state = 'pause';
-            for (var i = 0, l = this.target.state.length; i < l; i++){
-                if (this.target.state[i] === 'play'){
+
+            for (var media in this.target.state) {
+                if (this.target.state[media] === 'play'){
                     state = 'play';
                     break;
                 }
