@@ -183,6 +183,7 @@ export class VgAPI {
         media.addEventListener(VgEvents.VG_CAN_PLAY_THROUGH, this.onCanPlayThrough.bind(this, media.id), false);
         media.addEventListener(VgEvents.VG_LOADED_METADATA, this.onLoadMetadata.bind(this, media.id), false);
         media.addEventListener(VgEvents.VG_WAITING, this.onWait.bind(this, media.id), false);
+        media.addEventListener(VgEvents.VG_PROGRESS, this.onProgress.bind(this, media.id), false);
         media.addEventListener(VgEvents.VG_ENDED, this.onComplete.bind(this, media.id), false);
         media.addEventListener(VgEvents.VG_PLAYING, this.onStartPlaying.bind(this, media.id), false);
         media.addEventListener(VgEvents.VG_PLAY, this.onPlay.bind(this, media.id), false);
@@ -235,6 +236,10 @@ export class VgAPI {
     onTimeUpdate(id:string) {
         this.medias[id].time.current = this.medias[id].currentTime * 1000;
         this.medias[id].time.left = (this.medias[id].duration - this.medias[id].currentTime) * 1000;
+        this.medias[id].buffer.end = this.medias[id].buffered.end(this.medias[id].buffered.length - 1) * 1000;
+    }
+
+    onProgress(id:string) {
         this.medias[id].buffer.end = this.medias[id].buffered.end(this.medias[id].buffered.length - 1) * 1000;
     }
 
