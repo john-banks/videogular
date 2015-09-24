@@ -1,6 +1,6 @@
 @import "../vg-mixins";
 
-vg-play-pause {
+:host {
     @include control(50px);
 
     .icon {

@@ -1,6 +1,6 @@
 @import "../vg-mixins";
 
-vg-playback-button {
+:host {
     @include control(50px);
     width: 50px;
     color: white;

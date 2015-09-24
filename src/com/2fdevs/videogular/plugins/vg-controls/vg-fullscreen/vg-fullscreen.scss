@@ -1,10 +1,7 @@
-vg-fullscreen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    cursor: pointer;
-    color: white;
+@import "../vg-mixins";
+
+:host {
+    @include control(50px);
 
     .icon {
         pointer-events: none;

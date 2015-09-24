@@ -1,6 +1,5 @@
-vg-scrub-bar{
+:host {
     position: absolute;
-    z-index: 1;
     width: 100%;
     height: 5px;
     bottom: 50px;
@@ -11,7 +10,7 @@ vg-scrub-bar{
     z-index: 250;
 }
 
-vg-controls vg-scrub-bar {
+vg-controls :host {
     position: relative;
     bottom: initial;
     background: initial;

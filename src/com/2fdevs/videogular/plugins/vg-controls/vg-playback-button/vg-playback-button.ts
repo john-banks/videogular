@@ -1,4 +1,4 @@
-import {Component, View, LifecycleEvent, ViewEncapsulation} from 'angular2/angular2';
+import {Component, View, OnInit, ViewEncapsulation} from 'angular2/angular2';
 
 import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
 
@@ -9,14 +9,13 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
     ],
     host: {
         '(click)': 'onClick()'
-    },
-    lifecycle: [LifecycleEvent.onInit]
+    }
 })
 @View({
     templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-playback-button/vg-playback-button.html',
     encapsulation: ViewEncapsulation.NONE
 })
-export class VgPlaybackButton {
+export class VgPlaybackButton implements OnInit {
 
     constructor(public API:VgAPI) {
         this.playbackValues = ['0.5', '1.0', '1.5', '2.0'];

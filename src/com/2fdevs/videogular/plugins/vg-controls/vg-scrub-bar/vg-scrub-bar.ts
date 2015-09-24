@@ -1,4 +1,4 @@
-import {Component, View, ElementRef, LifecycleEvent, ViewEncapsulation} from 'angular2/angular2';
+import {Component, View, ElementRef, OnInit, ViewEncapsulation} from 'angular2/angular2';
 
 import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
 
@@ -9,14 +9,13 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
     ],
     host: {
         '(mousedown)': 'onMouseDownScrubBar($event)'
-    },
-    lifecycle: [LifecycleEvent.onInit]
+    }
 })
 @View({
     templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar.html',
     encapsulation: ViewEncapsulation.NONE
 })
-export class VgScrubBar {
+export class VgScrubBar implements OnInit {
 
     constructor(ref:ElementRef, public API:VgAPI) {
         this.elem = ref.nativeElement;

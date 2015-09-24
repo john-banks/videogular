@@ -1,8 +1,6 @@
 @import "vg-mixins";
 
-@import "vg-time-display/vg-time-display";
-
-vg-controls {
+:host {
     position: absolute;
     display: flex;
     width: 100%;
@@ -10,4 +8,6 @@ vg-controls {
     z-index: 300;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
+
+    @import "vg-time-display/vg-time-display";
 }

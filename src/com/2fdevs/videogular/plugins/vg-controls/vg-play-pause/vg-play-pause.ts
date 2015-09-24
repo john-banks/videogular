@@ -1,4 +1,4 @@
-import {Component, View, LifecycleEvent, ViewEncapsulation} from 'angular2/angular2';
+import {Component, View, OnInit, ViewEncapsulation} from 'angular2/angular2';
 
 import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
 
@@ -9,14 +9,13 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
     ],
     host: {
         '(click)': 'onClick()'
-    },
-    lifecycle: [LifecycleEvent.onInit]
+    }
 })
 @View({
     templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-play-pause/vg-play-pause.html',
     encapsulation: ViewEncapsulation.NONE
 })
-export class VgPlayPause {
+export class VgPlayPause implements OnInit {
 
     constructor(public API:VgAPI) {
 

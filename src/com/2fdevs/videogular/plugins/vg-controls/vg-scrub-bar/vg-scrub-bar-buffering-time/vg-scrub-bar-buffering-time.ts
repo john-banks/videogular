@@ -1,4 +1,4 @@
-import {Component, View, ViewEncapsulation, LifecycleEvent} from 'angular2/angular2';
+import {Component, View, ViewEncapsulation, OnInit} from 'angular2/angular2';
 
 import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
 
@@ -6,14 +6,13 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
     selector: 'vg-scrub-bar-buffering-time',
     properties: [
         'targetId: for'
-    ],
-    lifecycle: [LifecycleEvent.onInit]
+    ]
 })
 @View({
     templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar-buffering-time/vg-scrub-bar-buffering-time.html',
     encapsulation: ViewEncapsulation.NONE
 })
-export class VgScrubBarBufferingTime {
+export class VgScrubBarBufferingTime implements OnInit {
     constructor(public API:VgAPI) {
 
     }

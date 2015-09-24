@@ -1,4 +1,4 @@
-import {Component, View, LifecycleEvent, ViewEncapsulation} from 'angular2/angular2';
+import {Component, View, ViewEncapsulation, OnInit} from 'angular2/angular2';
 
 import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
 
@@ -8,16 +8,15 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
         'targetId: for'
     ],
     host: {
-        '(click)': 'onClick()'
-    },
-    lifecycle: [LifecycleEvent.onInit]
+        '(click)': 'onClick()',
+        'class': 'vg-overlay-play'
+    }
 })
 @View({
     templateUrl: 'com/2fdevs/videogular/plugins/vg-overlay-play/vg-overlay-play.html',
     encapsulation: ViewEncapsulation.NONE
 })
-export class VgOverlayPlay {
-
+export class VgOverlayPlay implements OnInit {
     constructor(public API: VgAPI) {
 
     }
