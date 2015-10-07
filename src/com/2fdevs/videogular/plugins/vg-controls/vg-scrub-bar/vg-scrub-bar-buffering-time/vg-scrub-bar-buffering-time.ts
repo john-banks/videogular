@@ -4,7 +4,7 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
 
 @Component({
     selector: 'vg-scrub-bar-buffering-time',
-    properties: [
+    inputs: [
         'targetId: for'
     ]
 })

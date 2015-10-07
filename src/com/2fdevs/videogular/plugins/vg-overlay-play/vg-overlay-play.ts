@@ -4,7 +4,7 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
 
 @Component({
     selector: 'vg-overlay-play',
-    properties: [
+    inputs: [
         'targetId: for'
     ],
     host: {

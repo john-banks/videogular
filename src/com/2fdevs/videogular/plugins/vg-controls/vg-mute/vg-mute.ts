@@ -4,7 +4,7 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
 
 @Component({
     selector: 'vg-mute',
-    properties: [
+    inputs: [
         'targetId: for'
     ],
     host: {
@@ -50,7 +50,7 @@ export class VgMute implements OnInit {
                 volume += this.target.volume[media];
             }
 
-            result = (volume / Object.keys(this.target.volume).length;
+            result = (volume / Object.keys(this.target.volume).length);
         }
         else {
             result = this.target.volume;

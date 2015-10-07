@@ -4,7 +4,7 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
 
 @Component({
     selector: 'vg-scrub-bar',
-    properties: [
+    inputs: [
         'targetId: for'
     ],
     host: {
