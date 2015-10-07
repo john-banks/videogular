@@ -1,7 +1,7 @@
 export class VgFullscreenAPI {
-    polyfill:Object;
-    onchange:string;
-    onerror:string;
+    static polyfill:any;
+    static onchange:string;
+    static onerror:string;
 
     static init() {
         const APIs = {

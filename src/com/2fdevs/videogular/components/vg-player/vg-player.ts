@@ -10,7 +10,7 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
 @View({
     templateUrl: 'com/2fdevs/videogular/components/vg-player/vg-player.html',
     styleUrls: ['com/2fdevs/videogular/components/vg-player/vg-player.css'],
-    encapsulation: ViewEncapsulation.NONE
+    encapsulation: ViewEncapsulation.None
 })
 export class VgPlayer implements OnInit {
     elem:HTMLElement;
