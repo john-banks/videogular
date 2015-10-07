@@ -7,7 +7,7 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
 })
 @View({
     templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-controls.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.Emulated
 })
 export class VgControls {
     constructor(public API:VgAPI) {

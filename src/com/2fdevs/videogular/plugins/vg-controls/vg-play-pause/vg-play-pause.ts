@@ -13,7 +13,7 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
 })
 @View({
     templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-play-pause/vg-play-pause.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.Emulated
 })
 export class VgPlayPause implements OnInit {
     target: any;
