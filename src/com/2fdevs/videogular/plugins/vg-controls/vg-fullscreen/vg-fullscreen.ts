@@ -16,6 +16,8 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
     encapsulation: ViewEncapsulation.NONE
 })
 export class VgFullscreen implements OnInit {
+    target: Object;
+    targetId: string;
 
     constructor(public API:VgAPI) {
 

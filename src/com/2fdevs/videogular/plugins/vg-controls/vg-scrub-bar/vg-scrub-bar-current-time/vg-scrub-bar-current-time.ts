@@ -13,6 +13,9 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
     encapsulation: ViewEncapsulation.NONE
 })
 export class VgScrubBarCurrentTime implements OnInit {
+    target: any;
+    targetId: string;
+
     constructor(public API:VgAPI) {
 
     }

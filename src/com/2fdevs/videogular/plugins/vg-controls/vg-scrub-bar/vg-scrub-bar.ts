@@ -16,6 +16,9 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
     encapsulation: ViewEncapsulation.NONE
 })
 export class VgScrubBar implements OnInit {
+    elem: any;
+    target: any;
+    targetId: string;
 
     constructor(ref:ElementRef, public API:VgAPI) {
         this.elem = ref.nativeElement;

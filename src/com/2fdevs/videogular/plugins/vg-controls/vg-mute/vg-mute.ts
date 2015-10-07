@@ -17,6 +17,8 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
 })
 export class VgMute implements OnInit {
     currentVolume:number;
+    target: any;
+    targetId: string;
 
     constructor(public API:VgAPI) {
 

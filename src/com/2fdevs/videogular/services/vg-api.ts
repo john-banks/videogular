@@ -4,6 +4,7 @@ import {VgFullscreenAPI} from 'com/2fdevs/videogular/services/vg-fullscreen-api'
 
 export class VgAPI {
     medias:Object = {};
+    videogularElement: Object;
 
     constructor() {
         VgFullscreenAPI.init();

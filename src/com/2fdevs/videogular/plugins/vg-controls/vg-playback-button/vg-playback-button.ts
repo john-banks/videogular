@@ -16,6 +16,11 @@ import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
     encapsulation: ViewEncapsulation.NONE
 })
 export class VgPlaybackButton implements OnInit {
+    playbackValues: Array<string>;
+    playbackIndex: number;
+    target: any;
+    targetId: string;
+
 
     constructor(public API:VgAPI) {
         this.playbackValues = ['0.5', '1.0', '1.5', '2.0'];
