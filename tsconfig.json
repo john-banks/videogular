@@ -1,11 +1,15 @@
 {
     "compilerOptions": {
+        "target": "es5",
+        "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "module": "amd",
-        "target": "es5"
+        "module": "commonjs",
+        "noImplicitAny": false,
+        "outDir": "built",
+        "rootDir": ".",
+        "sourceMap": false
     },
-    "files": [
-        "src/**/**.ts",
-        "typings/**/**.d.ts"
+    "exclude": [
+        "node_modules"
     ]
 }

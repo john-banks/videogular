@@ -1,4 +1,3 @@
-/// <reference path="../typings/tsd.d.ts" />
 import {ShadowDomStrategy, NativeShadowDomStrategy, Component, View, NgFor, bootstrap} from 'angular2/angular2';
 import {VgPlayer} from 'com/2fdevs/videogular/components/vg-player/vg-player';
 import {VgOverlayPlay} from 'com/2fdevs/videogular/plugins/vg-overlay-play/vg-overlay-play';
