@@ -13,51 +13,51 @@ var del = require('del');
 var tsProject = ts.createProject('tsconfig.json', { typescript: require('typescript') });
 
 gulp.task('clean-js', function() {
-    del(['build/**/*.js', 'build/**/*.js.map']);
+    del(['built/**/*.js', 'built/**/*.js.map']);
 });
 gulp.task('clean-css', function() {
-    del(['build/**/*.css', 'build/**/*.css.map']);
+    del(['built/**/*.css', 'built/**/*.css.map']);
 });
 gulp.task('clean-html', function() {
-    del(['build/**/*.html']);
+    del(['built/**/*.html']);
 });
 gulp.task('clean-fonts', function() {
-    del(['build/**/fonts']);
+    del(['built/**/fonts']);
 });
 
 gulp.task('compile-ts', function() {
-  var tsResult = gulp.src('src/**/*.ts')
+  var tsResult = gulp.src(['**/*.ts', '!node_modules/**/*.*'])
                   .pipe(plumber())
                   .pipe(sourcemaps.init())
                   .pipe(ts(tsProject));
 
   return merge([ // Merge the two output streams, so this task is finished when the IO of both operations are done.
-      tsResult.dts.pipe(gulp.dest('build/definitions')),
+      tsResult.dts.pipe(gulp.dest('built/definitions')),
       tsResult.js
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('build/'))
+        .pipe(gulp.dest('built/'))
   ]);
 });
 
 gulp.task('sass', function () {
-  gulp.src('src/**/*.scss')
+  gulp.src(['**/*.scss', '!node_modules/**/*.*'])
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest('built'));
 });
 
 gulp.task('html', function() {
-  gulp.src('src/**/*.html')
+  gulp.src(['src/**/*.html', '!node_modules/**/*.*'])
     .pipe(plumber())
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest('built'));
 });
 
 gulp.task('fonts', function() {
-  gulp.src('src/**/fonts/*.*')
+  gulp.src(['src/**/fonts/*.*', '!node_modules/**/*.*'])
     .pipe(plumber())
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest('built'));
 });
 
 gulp.task('clean', function() {
@@ -76,22 +76,22 @@ gulp.task('build', function() {
 });
 
 gulp.task('serve', function() {
-    var server = gls.static('build', 10000);
+    var server = gls.static('built', 10000);
     server.start();
 
-    watch(['build/**/*.css', 'build/**/*.html', 'build/**/*.js'], server.notify).on('error', gutil.log);
+    watch(['built/**/*.css', 'built/**/*.html', 'built/**/*.js'], server.notify).on('error', gutil.log);
 });
 
 gulp.task("watch", function() {
-    watch("src/**/*.ts", function() {
+    watch(["**/*.ts", "!node_modules/**/*.*"], function() {
       runSequence('clean-js',
                   'compile-ts');
     });
-    watch("src/**/*.html", function() {
+    watch(["**/*.html", "!node_modules/**/*.*"], function() {
       runSequence(//'clean-html',
                   'html');
     });
-    watch("src/**/*.scss", function() {
+    watch(["**/*.scss", "!node_modules/**/*.*"], function() {
       runSequence('clean-css',
                   'sass');
     });

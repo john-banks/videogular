@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,eAAgB;EACZ,OAAO,EAAE,KAAK;EACd,cAAc,EAAE,IAAI;EACpB,KAAK,EAAE,KAAK",
+"sources": ["vg-time-display.scss"],
+"names": [],
+"file": "vg-time-display.css"
+}
