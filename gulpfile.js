@@ -83,15 +83,15 @@ gulp.task('serve', function() {
 });
 
 gulp.task("watch", function() {
-    watch(["**/*.ts", "!node_modules/**/*.*"], function() {
+    watch(["**/*.ts", "!node_modules/**/*.ts", "!built/**/*.ts"], function() {
       runSequence('clean-js',
                   'compile-ts');
     });
-    watch(["**/*.html", "!node_modules/**/*.*"], function() {
+    watch(["**/*.html", "!node_modules/**/*.html", "!built/**/*.html"], function() {
       runSequence(//'clean-html',
                   'html');
     });
-    watch(["**/*.scss", "!node_modules/**/*.*"], function() {
+    watch(["**/*.scss", "!node_modules/**/*.scss", "!built/**/*.scss"], function() {
       runSequence('clean-css',
                   'sass');
     });
