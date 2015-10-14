@@ -26,7 +26,7 @@ gulp.task('clean-fonts', function() {
 });
 
 gulp.task('compile-ts', function() {
-  var tsResult = gulp.src(['**/*.ts', '!node_modules/**/*.*'])
+  var tsResult = gulp.src(['**/*.ts', '!node_modules/**/*.*', '!built/**/*.*'])
                   .pipe(plumber())
                   .pipe(sourcemaps.init())
                   .pipe(ts(tsProject));
@@ -40,7 +40,7 @@ gulp.task('compile-ts', function() {
 });
 
 gulp.task('sass', function () {
-  gulp.src(['**/*.scss', '!node_modules/**/*.*'])
+  gulp.src(['**/*.scss', '!node_modules/**/*.*', '!built/**/*.*'])
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
@@ -49,13 +49,13 @@ gulp.task('sass', function () {
 });
 
 gulp.task('html', function() {
-  gulp.src(['src/**/*.html', '!node_modules/**/*.*'])
+  gulp.src(['**/*.html', '!node_modules/**/*.*', '!built/**/*.*'])
     .pipe(plumber())
     .pipe(gulp.dest('built'));
 });
 
 gulp.task('fonts', function() {
-  gulp.src(['src/**/fonts/*.*', '!node_modules/**/*.*'])
+  gulp.src(['**/fonts/*.*', '!node_modules/**/*.*', '!built/**/*.*'])
     .pipe(plumber())
     .pipe(gulp.dest('built'));
 });
