@@ -29,7 +29,7 @@ gulp.task('compile-ts', function() {
   var tsResult = gulp.src('src/**/*.ts')
                   .pipe(plumber())
                   .pipe(sourcemaps.init())
-                  .pipe(ts(tsProject))
+                  .pipe(ts(tsProject));
 
   return merge([ // Merge the two output streams, so this task is finished when the IO of both operations are done.
       tsResult.dts.pipe(gulp.dest('build/definitions')),

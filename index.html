@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Videogular 2 Alpha</title>
+    <script src="node_modules/systemjs/dist/system-csp-production.js"></script>
+
+    <script>
+        System.config({
+            defaultJSExtensions: true
+        });
+    </script>
+
+    <script src="node_modules/angular2/angular2.js"></script>
+</head>
+<body>
+    <my-app></my-app>
+
+    <script>System.import('build/app');</script>
+</body>
+</html>
