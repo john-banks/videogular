@@ -1,1 +1,1 @@
-export * from './com/2fdevs/videogular/components/vg-player/vg-player';
+export * from './vg-player/vg-player';

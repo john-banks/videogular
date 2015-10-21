@@ -1,6 +1,4 @@
-import {VgEvents} from 'com/2fdevs/videogular/events/VgEvents';
-
-import {VgFullscreenAPI} from 'com/2fdevs/videogular/services/vg-fullscreen-api';
+import {VgEvents, VgFullscreenAPI} from '../api';
 
 export class VgAPI {
     medias:Object = {};

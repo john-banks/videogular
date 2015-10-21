@@ -1,6 +1,6 @@
 import {Component, View, bootstrap, EventEmitter, ElementRef, ViewEncapsulation, OnInit} from 'angular2/angular2';
 
-import {VgAPI} from '../../services/vg-api';
+import {VgAPI} from '../api';
 
 @Component({
     selector: 'vg-player',
