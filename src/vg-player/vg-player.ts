@@ -8,8 +8,8 @@ import {VgAPI} from '../api';
     outputs: ['onPlayerReady', 'onMediaReady']
 })
 @View({
-    templateUrl: 'com/2fdevs/videogular/components/vg-player/vg-player.html',
-    styleUrls: ['com/2fdevs/videogular/components/vg-player/vg-player.css'],
+    templateUrl: './vg-player.html',
+    styleUrls: ['./vg-player.css'],
     encapsulation: ViewEncapsulation.Emulated
 })
 export class VgPlayer implements OnInit {

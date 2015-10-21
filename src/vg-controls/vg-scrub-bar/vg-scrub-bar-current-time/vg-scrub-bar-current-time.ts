@@ -9,7 +9,7 @@ import {VgAPI} from '../../../api';
     ]
 })
 @View({
-    templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar-current-time/vg-scrub-bar-current-time.html',
+    templateUrl: './vg-scrub-bar-current-time.html',
     encapsulation: ViewEncapsulation.Emulated
 })
 export class VgScrubBarCurrentTime implements OnInit {

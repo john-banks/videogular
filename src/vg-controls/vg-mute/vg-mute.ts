@@ -12,7 +12,7 @@ import {VgAPI} from '../../api';
     }
 })
 @View({
-    templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-mute/vg-mute.html',
+    templateUrl: './vg-mute.html',
     encapsulation: ViewEncapsulation.Emulated
 })
 export class VgMute implements OnInit {

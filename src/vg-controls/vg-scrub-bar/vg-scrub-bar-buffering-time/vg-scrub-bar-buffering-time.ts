@@ -9,7 +9,7 @@ import {VgAPI} from '../../../api';
     ]
 })
 @View({
-    templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar-buffering-time/vg-scrub-bar-buffering-time.html',
+    templateUrl: './vg-scrub-bar-buffering-time.html',
     encapsulation: ViewEncapsulation.Emulated
 })
 export class VgScrubBarBufferingTime implements OnInit {

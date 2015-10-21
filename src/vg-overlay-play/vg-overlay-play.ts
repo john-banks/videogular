@@ -13,7 +13,7 @@ import {VgAPI} from '../api';
     }
 })
 @View({
-    templateUrl: 'com/2fdevs/videogular/plugins/vg-overlay-play/vg-overlay-play.html',
+    templateUrl: './vg-overlay-play.html',
     encapsulation: ViewEncapsulation.Emulated
 })
 export class VgOverlayPlay implements OnInit {

@@ -6,7 +6,7 @@ import {VgAPI} from '../api';
     selector: 'vg-controls'
 })
 @View({
-    templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-controls.html',
+    templateUrl: './vg-controls.html',
     encapsulation: ViewEncapsulation.Emulated
 })
 export class VgControls {

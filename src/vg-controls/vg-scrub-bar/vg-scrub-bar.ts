@@ -12,7 +12,7 @@ import {VgAPI} from '../../api';
     }
 })
 @View({
-    templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar.html',
+    templateUrl: './vg-scrub-bar.html',
     encapsulation: ViewEncapsulation.Emulated
 })
 export class VgScrubBar implements OnInit {

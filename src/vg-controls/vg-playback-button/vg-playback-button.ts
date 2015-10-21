@@ -12,7 +12,7 @@ import {VgAPI} from '../../api';
     }
 })
 @View({
-    templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-playback-button/vg-playback-button.html',
+    templateUrl: './vg-playback-button.html',
     encapsulation: ViewEncapsulation.Emulated
 })
 export class VgPlaybackButton implements OnInit {
