@@ -1,15 +1,5 @@
 import {ShadowDomStrategy, NativeShadowDomStrategy, Component, View, NgFor, bootstrap} from 'angular2/angular2';
-import {VgPlayer} from 'com/2fdevs/videogular/components/vg-player/vg-player';
-import {VgOverlayPlay} from 'com/2fdevs/videogular/plugins/vg-overlay-play/vg-overlay-play';
-
-import {VgControls} from 'com/2fdevs/videogular/plugins/vg-controls/vg-controls';
-import {VgPlayPause} from 'com/2fdevs/videogular/plugins/vg-controls/vg-play-pause/vg-play-pause';
-import {VgPlaybackButton} from 'com/2fdevs/videogular/plugins/vg-controls/vg-playback-button/vg-playback-button';
-import {VgScrubBar} from 'com/2fdevs/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar';
-import {VgScrubBarCurrentTime} from 'com/2fdevs/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar-current-time/vg-scrub-bar-current-time';
-import {VgScrubBarBufferingTime} from 'com/2fdevs/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar-buffering-time/vg-scrub-bar-buffering-time';
-import {VgMute} from 'com/2fdevs/videogular/plugins/vg-controls/vg-mute/vg-mute';
-import {VgFullscreen} from 'com/2fdevs/videogular/plugins/vg-controls/vg-fullscreen/vg-fullscreen';
+import {VgPlayer, VgOverlayPlay, VgControls, VgPlayPause, VgPlaybackButton, VgScrubBar, VgScrubBarCurrentTime, VgScrubBarBufferingTime, VgMute, VgFullscreen} from './src/videogular2';
 
 
 @Component({
