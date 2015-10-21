@@ -2,7 +2,7 @@
   "name": "videogular",
   "version": "2.0.0-alpha",
   "description": "Videogular is a video application framework for desktop and mobile powered by Angular 2.0",
-  "typings": "./videogular.d.ts",
+  "typings": "./videogular2.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/2fdevs/videogular/"
