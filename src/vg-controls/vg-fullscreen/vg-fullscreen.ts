@@ -12,7 +12,7 @@ import {VgAPI} from '../../api';
     }
 })
 @View({
-    templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-fullscreen/vg-fullscreen.html',
+    templateUrl: './vg-fullscreen.html',
     encapsulation: ViewEncapsulation.Emulated
 })
 export class VgFullscreen implements OnInit {
