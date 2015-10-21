@@ -24,6 +24,9 @@ gulp.task('clean-html', function() {
 gulp.task('clean-fonts', function() {
     del(['build/**/fonts']);
 });
+gulp.task('clean-libs', function() {
+    del(['build/libs/**/*']);
+});
 
 gulp.task('compile-ts', function() {
   var tsResult = gulp.src(['**/*.ts', '!node_modules/**/*.*', '!build/**/*.*'])
@@ -61,15 +64,17 @@ gulp.task('fonts', function() {
 });
 
 gulp.task('copy-external-modules', function() {
-  gulp.src(['node_modules/angular2/angular2.js', 'node_modules/systemjs/dist/system-csp-production.js'])
-    .pipe(plumber())
-    .pipe(gulp.dest('build/libs'));
+  gulp.src(['node_modules/angular2/**/*'])
+    .pipe(gulp.dest('build/libs/angular2'));
+  gulp.src(['node_modules/systemjs/dist/system-csp-production.js'])
+    .pipe(gulp.dest('build/libs/systemjs'));
 });
 
 gulp.task('clean', function() {
   runSequence('clean-js',
               'clean-css',
               'clean-html',
+              'clean-libs',
               'clean-fonts');
 });
 
