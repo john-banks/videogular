@@ -60,6 +60,12 @@ gulp.task('fonts', function() {
     .pipe(gulp.dest('build'));
 });
 
+gulp.task('copy-external-modules', function() {
+  gulp.src(['node_modules/angular2/angular2.js', 'node_modules/systemjs/dist/system-csp-production.js'])
+    .pipe(plumber())
+    .pipe(gulp.dest('build/libs'));
+});
+
 gulp.task('clean', function() {
   runSequence('clean-js',
               'clean-css',
@@ -70,6 +76,7 @@ gulp.task('clean', function() {
 gulp.task('build', function() {
   runSequence('clean',
               'compile-ts',
+              'copy-external-modules',
               'html',
               'sass',
               'fonts');
