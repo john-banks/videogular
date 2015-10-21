@@ -1,0 +1,1 @@
+export * from './com/2fdevs/videogular/components/vg-player/vg-player';
