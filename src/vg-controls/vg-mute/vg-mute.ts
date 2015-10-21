@@ -1,6 +1,6 @@
 import {Component, View, OnInit, ViewEncapsulation} from 'angular2/angular2';
 
-import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
+import {VgAPI} from '../../api';
 
 @Component({
     selector: 'vg-mute',

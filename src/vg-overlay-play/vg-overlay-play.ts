@@ -1,25 +1,26 @@
-import {Component, View, OnInit, ViewEncapsulation} from 'angular2/angular2';
+import {Component, View, ViewEncapsulation, OnInit} from 'angular2/angular2';
 
-import {VgAPI} from 'com/2fdevs/videogular/services/vg-api';
+import {VgAPI} from '../api';
 
 @Component({
-    selector: 'vg-play-pause',
+    selector: 'vg-overlay-play',
     inputs: [
         'targetId: for'
     ],
     host: {
-        '(click)': 'onClick()'
+        '(click)': 'onClick()',
+        'class': 'vg-overlay-play'
     }
 })
 @View({
-    templateUrl: 'com/2fdevs/videogular/plugins/vg-controls/vg-play-pause/vg-play-pause.html',
+    templateUrl: 'com/2fdevs/videogular/plugins/vg-overlay-play/vg-overlay-play.html',
     encapsulation: ViewEncapsulation.Emulated
 })
-export class VgPlayPause implements OnInit {
+export class VgOverlayPlay implements OnInit {
     target: any;
     targetId: string;
 
-    constructor(public API:VgAPI) {
+    constructor(public API: VgAPI) {
 
     }
 
@@ -44,11 +45,10 @@ export class VgPlayPause implements OnInit {
     getState() {
         var state;
 
-        if (this.target.state instanceof Object) {
+        if (this.target.state instanceof Array) {
             state = 'pause';
-
-            for (var media in this.target.state) {
-                if (this.target.state[media] === 'play'){
+            for (var i = 0, l = this.target.state.length; i < l; i++) {
+                if (this.target.state[i] === 'play') {
                     state = 'play';
                     break;
                 }
