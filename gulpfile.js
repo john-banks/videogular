@@ -70,9 +70,9 @@ gulp.task('copy-external-modules', function() {
   gulp.src(['node_modules/systemjs/dist/**/*'])
     .pipe(plumber())
     .pipe(gulp.dest('build/libs/systemjs'));
-  gulp.src(['node_modules/traceur/bin/traceur-runtime.js'])
+  gulp.src(['node_modules/es6-shim/es6-shim.min.js'])
     .pipe(plumber())
-    .pipe(gulp.dest('build/libs/traceur'));
+    .pipe(gulp.dest('build/libs/es6-shim'));
 });
 
 gulp.task('clean', function() {

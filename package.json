@@ -8,8 +8,8 @@
     "url": "https://github.com/2fdevs/videogular/"
   },
   "dependencies": {
-    "angular2": "^2.0.0-alpha.44",
-    "traceur": "0.0.92",
+    "angular2": "2.0.0-alpha.44",
+    "es6-shim": "^0.33.6",
     "systemjs": "0.18.4"
   },
   "devDependencies": {
