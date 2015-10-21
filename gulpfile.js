@@ -65,10 +65,13 @@ gulp.task('fonts', function() {
 
 gulp.task('copy-external-modules', function() {
   gulp.src(['node_modules/angular2/**/*'])
+    .pipe(plumber())
     .pipe(gulp.dest('build/libs/angular2'));
-  gulp.src(['node_modules/systemjs/dist/system-csp-production.js'])
+  gulp.src(['node_modules/systemjs/dist/**/*'])
+    .pipe(plumber())
     .pipe(gulp.dest('build/libs/systemjs'));
   gulp.src(['node_modules/traceur/bin/traceur-runtime.js'])
+    .pipe(plumber())
     .pipe(gulp.dest('build/libs/traceur'));
 });
 
