@@ -66,13 +66,13 @@ gulp.task('fonts', function() {
 gulp.task('copy-external-modules', function() {
   gulp.src(['node_modules/angular2/**/*'])
     .pipe(plumber())
-    .pipe(gulp.dest('build/libs/angular2'));
-  gulp.src(['node_modules/systemjs/dist/**/*'])
+    .pipe(gulp.dest('build/node_modules/angular2'));
+  gulp.src(['node_modules/systemjs/**/*'])
     .pipe(plumber())
-    .pipe(gulp.dest('build/libs/systemjs'));
-  gulp.src(['node_modules/es6-shim/es6-shim.min.js'])
+    .pipe(gulp.dest('build/node_modules/systemjs'));
+  gulp.src(['node_modules/es6-shim/**/*'])
     .pipe(plumber())
-    .pipe(gulp.dest('build/libs/es6-shim'));
+    .pipe(gulp.dest('build/node_modules/es6-shim'));
 });
 
 gulp.task('clean', function() {
