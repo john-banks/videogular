@@ -68,6 +68,8 @@ gulp.task('copy-external-modules', function() {
     .pipe(gulp.dest('build/libs/angular2'));
   gulp.src(['node_modules/systemjs/dist/system-csp-production.js'])
     .pipe(gulp.dest('build/libs/systemjs'));
+  gulp.src(['node_modules/traceur/bin/traceur-runtime.js'])
+    .pipe(gulp.dest('build/libs/traceur'));
 });
 
 gulp.task('clean', function() {
