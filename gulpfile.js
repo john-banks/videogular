@@ -13,51 +13,51 @@ var del = require('del');
 var tsProject = ts.createProject('tsconfig.json', { typescript: require('typescript') });
 
 gulp.task('clean-js', function() {
-    del(['built/**/*.js', 'built/**/*.js.map']);
+    del(['build/**/*.js', 'build/**/*.js.map']);
 });
 gulp.task('clean-css', function() {
-    del(['built/**/*.css', 'built/**/*.css.map']);
+    del(['build/**/*.css', 'build/**/*.css.map']);
 });
 gulp.task('clean-html', function() {
-    del(['built/**/*.html']);
+    del(['build/**/*.html']);
 });
 gulp.task('clean-fonts', function() {
-    del(['built/**/fonts']);
+    del(['build/**/fonts']);
 });
 
 gulp.task('compile-ts', function() {
-  var tsResult = gulp.src(['**/*.ts', '!node_modules/**/*.*', '!built/**/*.*'])
+  var tsResult = gulp.src(['**/*.ts', '!node_modules/**/*.*', '!build/**/*.*'])
                   .pipe(plumber())
                   .pipe(sourcemaps.init())
                   .pipe(ts(tsProject));
 
   return merge([ // Merge the two output streams, so this task is finished when the IO of both operations are done.
-      tsResult.dts.pipe(gulp.dest('built/definitions')),
+      tsResult.dts.pipe(gulp.dest('build/definitions')),
       tsResult.js
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('built/'))
+        .pipe(gulp.dest('build/'))
   ]);
 });
 
 gulp.task('sass', function () {
-  gulp.src(['**/*.scss', '!node_modules/**/*.*', '!built/**/*.*'])
+  gulp.src(['**/*.scss', '!node_modules/**/*.*', '!build/**/*.*'])
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('built'));
+    .pipe(gulp.dest('build'));
 });
 
 gulp.task('html', function() {
-  gulp.src(['**/*.html', '!node_modules/**/*.*', '!built/**/*.*'])
+  gulp.src(['**/*.html', '!node_modules/**/*.*', '!build/**/*.*'])
     .pipe(plumber())
-    .pipe(gulp.dest('built'));
+    .pipe(gulp.dest('build'));
 });
 
 gulp.task('fonts', function() {
-  gulp.src(['**/fonts/*.*', '!node_modules/**/*.*', '!built/**/*.*'])
+  gulp.src(['**/fonts/*.*', '!node_modules/**/*.*', '!build/**/*.*'])
     .pipe(plumber())
-    .pipe(gulp.dest('built'));
+    .pipe(gulp.dest('build'));
 });
 
 gulp.task('clean', function() {
@@ -76,22 +76,22 @@ gulp.task('build', function() {
 });
 
 gulp.task('serve', function() {
-    var server = gls.static('built', 10000);
+    var server = gls.static('build', 10000);
     server.start();
 
-    watch(['built/**/*.css', 'built/**/*.html', 'built/**/*.js'], server.notify).on('error', gutil.log);
+    watch(['build/**/*.css', 'build/**/*.html', 'build/**/*.js'], server.notify).on('error', gutil.log);
 });
 
 gulp.task("watch", function() {
-    watch(["**/*.ts", "!node_modules/**/*.ts", "!built/**/*.ts"], function() {
+    watch(["**/*.ts", "!node_modules/**/*.ts", "!build/**/*.ts"], function() {
       runSequence('clean-js',
                   'compile-ts');
     });
-    watch(["**/*.html", "!node_modules/**/*.html", "!built/**/*.html"], function() {
+    watch(["**/*.html", "!node_modules/**/*.html", "!build/**/*.html"], function() {
       runSequence(//'clean-html',
                   'html');
     });
-    watch(["**/*.scss", "!node_modules/**/*.scss", "!built/**/*.scss"], function() {
+    watch(["**/*.scss", "!node_modules/**/*.scss", "!build/**/*.scss"], function() {
       runSequence('clean-css',
                   'sass');
     });

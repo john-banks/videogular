@@ -1,6 +1,6 @@
 node_modules
 /.idea
-/built/
+/build/
 /src/**/*.js
 /src/**/*.css
 /src/**/*.map
