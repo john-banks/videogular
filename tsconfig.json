@@ -11,7 +11,7 @@
         "sourceMap": false
     },
     "files": [
-        "src/videogular2.ts"
+        "videogular2.ts"
     ],
     "exclude": [
         "node_modules"
